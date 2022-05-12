@@ -23,6 +23,7 @@ exports.up = (pgm) => {
     time: {
       type: 'TIMESTAMP',
       notNull: true,
+      default: pgm.func('current_timestamp'),
     },
   });
   pgm.addConstraint('playlistsongactivities', 'fk_playlistsongactivities.playlist_id_playlists.id', 'FOREIGN KEY(playlist_id) REFERENCES playlists(id) ON DELETE CASCADE');
