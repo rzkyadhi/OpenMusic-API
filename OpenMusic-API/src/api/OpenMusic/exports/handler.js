@@ -23,12 +23,10 @@ class ExportsHandler {
 
     await this._producerService.sendMessage('export:playlists', JSON.stringify(message));
 
-    const response = h.response({
+    return h.response({
       status: 'success',
       message: 'Permintaan Anda sedang kami proses',
-    });
-    response.code(201);
-    return response;
+    }).code(201);
   }
 }
 

@@ -17,12 +17,10 @@ class UploadsHandler {
     const coverUrl = `http://${process.env.HOST}:${process.env.PORT}/albums/images/${filename}`;
 
     await this._albumsService.addCoverAlbum(id, coverUrl);
-    const response = h.response({
+    return h.response({
       status: 'success',
       message: 'Sampul berhasil diunggah',
-    });
-    response.code(201);
-    return response;
+    }).code(201);
   }
 }
 

@@ -24,12 +24,10 @@ class PlaylistSongsHandler {
 
     await this._playlistSongsService.addPlaylistSongActivities(playlistId, songId, credentialId, 'add');
 
-    const response = h.response({
+    return h.response({
       status: 'success',
       message: 'Lagu berhasil ditambahkan ke playlist',
-    });
-    response.code(201);
-    return response;
+    }).code(201);
   }
 
   async getPlaylistSongsHandler(request) {

@@ -18,21 +18,17 @@ class UserAlbumLikesHandler {
     if (!likeStatus) {
       await this._service.addUserAlbumLikes(credentialId, albumId);
 
-      const response = h.response({
+      return h.response({
         status: 'success',
         message: `Berhasil menyukai album ${albumId}`,
-      });
-      response.code(201);
-      return response;
+      }).code(201);
     }
     await this._service.deleteUserAlbumLikes(credentialId, albumId);
 
-    const response = h.response({
+    return h.response({
       status: 'success',
       message: `Berhasil melakukan dislike album ${albumId}`,
-    });
-    response.code(201);
-    return response;
+    }).code(201);
   }
 
   async getUserAlbumLikesHandler(request, h) {
