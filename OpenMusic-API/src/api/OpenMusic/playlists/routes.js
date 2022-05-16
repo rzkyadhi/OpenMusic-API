@@ -5,6 +5,9 @@ const routes = (handler) => [
     handler: handler.postPlaylistHandler,
     options: {
       auth: 'playlistapp_jwt',
+      description: 'Post a playlist',
+      notes: 'Post a playlist to database',
+      tags: ['api'],
     },
   },
   {
@@ -13,6 +16,9 @@ const routes = (handler) => [
     handler: handler.getPlaylistsHandler,
     options: {
       auth: 'playlistapp_jwt',
+      description: 'Get all playlists',
+      notes: 'Returns all playlists in the database',
+      tags: ['api'],
     },
   },
   {
@@ -21,6 +27,9 @@ const routes = (handler) => [
     handler: handler.deletePlaylistByIdHandler,
     options: {
       auth: 'playlistapp_jwt',
+      description: 'Delete a playlist by an ID',
+      notes: 'Delete playlist by an ID from database',
+      tags: ['api'],
     },
   },
 ];
