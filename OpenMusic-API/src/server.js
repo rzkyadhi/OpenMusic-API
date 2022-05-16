@@ -86,6 +86,16 @@ const init = async () => {
   const swaggerOptions = {
     info: {
       title: 'Openmusic API Documentation',
+      description: 'OpenAPI for OpenMusic Restful API',
+      version: '1.0.0',
+      contact: {
+        name: 'Rizky Adhi Nugroho',
+        email: 'rizkyadhi081@gmail.com',
+      },
+    },
+    externalDocs: {
+      description: 'rzkyadhi Github Repository',
+      url: 'https://github.com/rzkyadhi/Openmusic-API',
     },
   };
 
