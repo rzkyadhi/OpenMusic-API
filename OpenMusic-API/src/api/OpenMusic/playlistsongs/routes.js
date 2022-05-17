@@ -9,15 +9,6 @@ const routes = (handler) => [
       auth: 'playlistapp_jwt',
       description: 'Post a song to a playlist in database',
       notes: 'Need a token to access this route and the playlist ID passed on the path',
-      plugins: {
-        'hapi-swagger': {
-          responses: {
-            201: {
-              description: 'Lagu berhasil ditambahkan ke playlist',
-            },
-          },
-        },
-      },
       validate: {
         headers: Joi.object({
           authorization: Joi.string()
@@ -34,6 +25,15 @@ const routes = (handler) => [
           songId: Joi.string().required(),
         }),
       },
+      plugins: {
+        'hapi-swagger': {
+          responses: {
+            201: {
+              description: 'Lagu berhasil ditambahkan ke playlist',
+            },
+          },
+        },
+      },
       tags: ['api'],
     },
   },
@@ -45,15 +45,6 @@ const routes = (handler) => [
       auth: 'playlistapp_jwt',
       description: 'Get a song in a playlist by an playlist ID',
       notes: 'Need a token to access this route and the playlist ID passed on the path',
-      plugins: {
-        'hapi-swagger': {
-          responses: {
-            200: {
-              description: 'Berhasil mengambil lagu dari playlist',
-            },
-          },
-        },
-      },
       validate: {
         headers: Joi.object({
           authorization: Joi.string()
@@ -67,6 +58,15 @@ const routes = (handler) => [
             .description('the id for the playlist'),
         }),
       },
+      plugins: {
+        'hapi-swagger': {
+          responses: {
+            200: {
+              description: 'Berhasil mengambil lagu dari playlist',
+            },
+          },
+        },
+      },
       tags: ['api'],
     },
   },
@@ -78,15 +78,6 @@ const routes = (handler) => [
       auth: 'playlistapp_jwt',
       description: 'Delete a song in a playlist',
       notes: 'Need a token to access this route and the playlist ID passed on the path',
-      plugins: {
-        'hapi-swagger': {
-          responses: {
-            200: {
-              description: 'Berhasil menghapus lagu dari playlist',
-            },
-          },
-        },
-      },
       validate: {
         headers: Joi.object({
           authorization: Joi.string()
@@ -100,6 +91,15 @@ const routes = (handler) => [
             .description('the id for the playlist'),
         }),
       },
+      plugins: {
+        'hapi-swagger': {
+          responses: {
+            200: {
+              description: 'Berhasil menghapus lagu dari playlist',
+            },
+          },
+        },
+      },
       tags: ['api'],
     },
   },
@@ -111,6 +111,29 @@ const routes = (handler) => [
       auth: 'playlistapp_jwt',
       description: 'Get playlist song activities by an playlist ID',
       notes: 'Need a token to access this route and the playlist ID passed on the path',
+      validate: {
+        headers: Joi.object({
+          authorization: Joi.string()
+            .required()
+            .description('bearer token'),
+        }),
+        params: Joi.object({
+          id: Joi.string()
+            .max(50)
+            .required()
+            .description('the id for the playlist'),
+        }),
+      },
+      plugins: {
+        'hapi-swagger': {
+          responses: {
+            200: {
+              description: 'Berhasil mengambil playlist song activities',
+            },
+          },
+        },
+      },
+      tags: ['api'],
     },
   },
 ];
